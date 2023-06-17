@@ -94,7 +94,7 @@ class Scanner {
             case ' ':
             case '\r':
             case '\t':
-                break;
+                break; 
             case '\n':
                 line++;
                 break;
