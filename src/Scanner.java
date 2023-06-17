@@ -123,7 +123,7 @@ class Scanner {
     private void number() {
         while(isDigit(peek())) advance();
 
-        if(peek() == "." && isDigit(peekNext())) {
+        if(peek() == '.' && isDigit(peekNext())) {
             advance();
             while(isDigit(peek())) advance();
         }
