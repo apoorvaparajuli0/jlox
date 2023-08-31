@@ -1,2 +1,2 @@
 # jlox
-My WIP implementation of jlox following Bob Nystrom's book, "Crafting Interpreters."
+My WIP implementation of jlox following along with Bob Nystrom's book, [Crafting Interpreters](https://craftinginterpreters.com/)
