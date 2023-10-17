@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.craftinginterpreters.lox.Lox;
-
 import static com.craftinginterpreters.lox.TokenType.*; 
 
 class Scanner {
@@ -89,7 +87,18 @@ class Scanner {
                      * count
                      */
                     while (peek() != '\n' && !isAtEnd()) advance();
-                } else {
+                } /* CHALLENGE: multi-line comment support */
+                else if(match('*')) {
+                    while((peek() != '*' && peekNext() != '/') && !isAtEnd()) { 
+                        if(peek() == '\n') {
+                            line++;
+                        } 
+                        advance(); 
+                    }
+                    if((peek() != '*' && peekNext() != '/') || isAtEnd()) {
+                        Lox.error(line, "Unterminated Comment");
+                    }
+                }else {
                     addToken(SLASH);
                 }
                 break;
