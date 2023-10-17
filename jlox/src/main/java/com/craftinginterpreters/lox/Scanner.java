@@ -87,7 +87,18 @@ class Scanner {
                      * count
                      */
                     while (peek() != '\n' && !isAtEnd()) advance();
-                } else {
+                } /* CHALLENGE: multi-line comment support */
+                else if(match('*')) {
+                    while((peek() != '*' && peekNext() != '/') && !isAtEnd()) { 
+                        if(peek() == '\n') {
+                            line++;
+                        } 
+                        advance(); 
+                    }
+                    if((peek() != '*' && peekNext() != '/') || isAtEnd()) {
+                        Lox.error(line, "Unterminated Comment");
+                    }
+                }else {
                     addToken(SLASH);
                 }
                 break;
