@@ -14,6 +14,14 @@ class Parser {
   Parser(List<Token> tokens) {
     this.tokens = tokens;
   }
+
+  Expr parse() {
+    try {
+      return expression();
+    } catch(ParseError err) {
+      return null;
+    }
+  }
   
   /*
    * CHALLENGE:
@@ -104,7 +112,7 @@ class Parser {
       return new Expr.Grouping(expr);
     }
 
-    throw error(peek(), "Invalid primary expression");
+    throw error(peek(), "Expected Expression");
   }
 
   private boolean match(TokenType... types) {
