@@ -1,2 +1,3 @@
-*/classes/
-*/test-classes/
+jlox/target/classes/com/craftinginterpreters/lox/**
+jlox/target/classes/com/craftinginterpreters/tool/**
+jlox/target/test-classes/**
