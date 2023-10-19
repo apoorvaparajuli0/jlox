@@ -1,2 +1,2 @@
-jlox/target/classes/
-jlox/target/test-classes/
+/jlox/target/classes/
+/jlox/taget/test-classes
